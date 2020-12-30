@@ -26,6 +26,104 @@ class StudentApiGenerated {
 
   // CRUD METHODS
 
+  /**
+  * StudentService.create
+  *   @description CRUD ACTION create
+  *   @param Student obj Object to insert
+  *
+  */
+  static createStudent(student) {
+    return axios.post(StudentApiGenerated.contextUrl, student )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * StudentService.delete
+  *   @description CRUD ACTION delete
+  *   @param ObjectId id Id Student
+  *
+  */
+  static deleteStudent(id) {
+    return axios.delete(StudentApiGenerated.contextUrl + "/" + id)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * StudentService.findByname
+  *   @description CRUD ACTION findByname
+  *   @param Objectid key Id of the resource name to search
+  *
+  */
+  static findByname(id) {
+    return axios.get(StudentApiGenerated.contextUrl + "/findByname/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * StudentService.get
+  *   @description CRUD ACTION get
+  *   @param ObjectId id Id Student
+  *   @returns Student
+  *
+  */
+  static getOneStudent(id) {
+    return axios.get(StudentApiGenerated.contextUrl + "/" + id)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * StudentService.list
+  *   @description CRUD ACTION list
+  *   @returns ARRAY OF Student
+  *
+  */
+  static getStudentList() {
+    return axios.get(StudentApiGenerated.contextUrl)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * StudentService.update
+  *   @description CRUD ACTION update
+  *   @param ObjectId id Id Student
+  *   @returns Student
+  *
+  */
+  static saveStudent(student) {
+    return axios.post(StudentApiGenerated.contextUrl + "/" + student._id, student )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
 
 
     // Custom APIs

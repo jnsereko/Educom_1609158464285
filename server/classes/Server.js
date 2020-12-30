@@ -27,8 +27,18 @@ import SecurityController from "../controllers/SecurityController";
 import Database_Educom_db from "./Database_Educom_db.js";
 
 // Controllers
+import AdminController from "../controllers/Educom_db/AdminController";
+import AnnouncementController from "../controllers/Educom_db/AnnouncementController";
+import AttendanceController from "../controllers/Educom_db/AttendanceController";
+import BlackBoadController from "../controllers/Educom_db/BlackBoadController";
+import ClassController from "../controllers/Educom_db/ClassController";
+import ClassResourcesController from "../controllers/Educom_db/ClassResourcesController";
+import ExamResultsController from "../controllers/Educom_db/ExamResultsController";
+import HomeworkResultsController from "../controllers/Educom_db/HomeworkResultsController";
 import LecturerController from "../controllers/Educom_db/LecturerController";
+import LessonController from "../controllers/Educom_db/LessonController";
 import StudentController from "../controllers/Educom_db/StudentController";
+import TimetableController from "../controllers/Educom_db/TimetableController";
 import UserController from "../controllers/Educom_db/UserController";
 
 // End Import Controllers
@@ -110,8 +120,18 @@ class Server {
     SecurityController.init(router);
 
     // Start Init Controllers
+		AdminController.init(router);
+		AnnouncementController.init(router);
+		AttendanceController.init(router);
+		BlackBoadController.init(router);
+		ClassController.init(router);
+		ClassResourcesController.init(router);
+		ExamResultsController.init(router);
+		HomeworkResultsController.init(router);
 		LecturerController.init(router);
+		LessonController.init(router);
 		StudentController.init(router);
+		TimetableController.init(router);
 		UserController.init(router);
 		 // End Init Controllers
 

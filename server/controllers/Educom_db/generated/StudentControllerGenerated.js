@@ -27,12 +27,117 @@ const generatedControllers = {
    */
   init: router => {
     const baseUrl = `${Properties.api}/student`;
+    router.post(baseUrl + "", authorize([]), StudentController.create);
+    router.delete(baseUrl + "/:id", authorize([]), StudentController.delete);
+    router.get(baseUrl + "/findByname/:key", authorize([]), StudentController.findByname);
+    router.get(baseUrl + "/:id", StudentController.get);
+    router.get(baseUrl + "", StudentController.list);
+    router.post(baseUrl + "/:id", StudentController.update);
   },
 
 
   // CRUD METHODS
 
 
+  /**
+  * StudentModel.create
+  *   @description CRUD ACTION create
+  *   @param Student obj Object to insert
+  *
+  */
+  create: async (req, res) => {
+    try {
+      const result = await StudentModel.create(req.body);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * StudentModel.delete
+  *   @description CRUD ACTION delete
+  *   @param ObjectId id Id Student
+  *
+  */
+  delete: async (req, res) => {
+    try {
+      const result = await StudentModel.delete(req.params.id);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * StudentModel.findByname
+  *   @description CRUD ACTION findByname
+  *   @param Objectid key Id of the resource name to search
+  *
+  */
+  findByname: async (req, res) => {
+    try {
+      const result = await StudentModel.findByname(req.params.key);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * StudentModel.get
+  *   @description CRUD ACTION get
+  *   @param ObjectId id Id Student
+  *   @returns Student
+  *
+  */
+  get: async (req, res) => {
+    try {
+      const result = await StudentModel.get(req.params.id);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  /**
+  * StudentModel.list
+  *   @description CRUD ACTION list
+  *   @returns ARRAY OF Student
+  *
+  */
+  list: async (req, res) => {
+    try {
+      const result = await StudentModel.list();
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
+  
+  /**
+  * StudentModel.update
+  *   @description CRUD ACTION update
+  *   @param ObjectId id Id Student
+  *   @returns Student
+  *
+  */
+  update: async (req, res) => {
+    try {
+      const result = await StudentModel.update(req.body);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
+  
   
   // Custom APIs
 

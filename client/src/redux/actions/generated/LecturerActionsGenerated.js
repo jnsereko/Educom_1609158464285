@@ -23,6 +23,100 @@ let actionsFunction = {
 
   //CRUD METHODS
 
+  // Create lecturer
+  createLecturer: function(lecturer) {
+    return function(dispatch) {
+      return LecturerApi
+        .createLecturer(lecturer)
+        .then(lecturer => {
+          dispatch(actionsFunction.createLecturerSuccess(lecturer));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  createLecturerSuccess: function(lecturer) {
+    return { type: types.CREATE_LECTURER_SUCCESS, payload: lecturer };
+  },
+
+
+  // Delete lecturer
+  deleteLecturer: function(id) {
+    return function(dispatch) {
+      return LecturerApi
+        .deleteLecturer(id)
+        .then(lecturer => {
+          dispatch(actionsFunction.deleteLecturerSuccess(lecturer));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  deleteLecturerSuccess: function(lecturer) {
+    return { type: types.DELETE_LECTURER_SUCCESS, payload: lecturer };
+  },
+
+
+  // Get lecturer
+  loadLecturer: function(id) {
+    return function(dispatch) {
+      return LecturerApi
+        .getOneLecturer(id)
+        .then(lecturer => {
+          dispatch(actionsFunction.loadLecturerSuccess(lecturer));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  loadLecturerSuccess: function(lecturer) {
+    return { type: types.GET_LECTURER_SUCCESS, payload: lecturer };
+  },
+
+  // Load  list
+  loadLecturerList: function() {
+    return function(dispatch) {
+      return LecturerApi
+        .getLecturerList()
+        .then(list => {
+          dispatch(actionsFunction.loadLecturerListSuccess(list));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  loadLecturerListSuccess: function(list) {
+    return { type: types.LIST_LECTURER_SUCCESS, payload: list };
+  },
+
+	
+  // Save lecturer
+  saveLecturer: function(lecturer) {
+    return function(dispatch) {
+      return LecturerApi
+        .saveLecturer(lecturer)
+        .then(lecturer => {
+          dispatch(actionsFunction.saveLecturerSuccess(lecturer));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  saveLecturerSuccess: function(lecturer) {
+    return { type: types.UPDATE_LECTURER_SUCCESS, payload: lecturer };
+  },
+
+
 };
 
 export default actionsFunction;
