@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   x-skaffolder-id-project: 5fe9ce74a3e0491123238a9a
-  title: Educom
+  title: Peacodove
   description: You can obtain JWT token from login API
   version: 0.1
 servers:
@@ -443,9 +443,15 @@ paths:
             schema:
               type: object
               properties:
-                studentName:
+                email:
                   type: string
-                studentPassword:
+                isHandRaised:
+                  type: boolean
+                isMuted:
+                  type: boolean
+                name:
+                  type: string
+                password:
                   type: string
     get:
       x-skaffolder-id: 5fec82b7a3e049112323902e
@@ -847,7 +853,12 @@ components:
           type: string
           x-skaffolder-id-attr: 5fec863da3e0491123239058
           x-skaffolder-type: String
-      x-skaffolder-relations: 
+      x-skaffolder-relations:
+        studentId:
+          x-skaffolder-id: 5ff17db0a3e0491123239abd
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5fec863da3e0491123239057
+          x-skaffolder-ent2: 5fe9d258a3e0491123238b13
       required:
         - _id
     BlackBoad:
@@ -1019,7 +1030,17 @@ components:
           type: integer
           x-skaffolder-id-attr: 5fec8468a3e049112323903f
           x-skaffolder-type: Date
-      x-skaffolder-relations: 
+      x-skaffolder-relations:
+        lecturerId:
+          x-skaffolder-id: 5ff17d7ca3e0491123239abc
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5fec8468a3e049112323903e
+          x-skaffolder-ent2: 5fe9d2c8a3e0491123238b19
+        studentId:
+          x-skaffolder-id: 5ff17d7ca3e0491123239abb
+          x-skaffolder-type: 1:m
+          x-skaffolder-ent1: 5fec8468a3e049112323903e
+          x-skaffolder-ent2: 5fe9d258a3e0491123238b13
       required:
         - _id
     Student:
@@ -1031,11 +1052,23 @@ components:
         _id:
           type: string
           x-skaffolder-required: true
-        studentName:
+        email:
+          type: string
+          x-skaffolder-id-attr: 5ff17cf7a3e0491123239ab9
+          x-skaffolder-type: String
+        isHandRaised:
+          type: boolean
+          x-skaffolder-id-attr: 5ff17cf7a3e0491123239ab8
+          x-skaffolder-type: Boolean
+        isMuted:
+          type: boolean
+          x-skaffolder-id-attr: 5ff17cf7a3e0491123239aba
+          x-skaffolder-type: Boolean
+        name:
           type: string
           x-skaffolder-id-attr: 5fe9d258a3e0491123238b14
           x-skaffolder-type: String
-        studentPassword:
+        password:
           type: string
           x-skaffolder-id-attr: 5fe9d258a3e0491123238b15
           x-skaffolder-type: String

@@ -33,10 +33,19 @@ const generatedModel = {
       * Student
       */
     const studentSchema = new mongoose.Schema({
-      studentName: {
+      email: {
         type: "String"
       },
-      studentPassword: {
+      isHandRaised: {
+        type: "Boolean"
+      },
+      isMuted: {
+        type: "Boolean"
+      },
+      name: {
+        type: "String"
+      },
+      password: {
         type: "String"
       },
       // RELATIONS
@@ -44,6 +53,14 @@ const generatedModel = {
       
       // EXTERNAL RELATIONS
       /*
+      studentId: {
+        type: Schema.ObjectId,
+        ref: "Lesson"
+      },
+      studentId: {
+        type: Schema.ObjectId,
+        ref: "Attendance"
+      },
       */
     });
 

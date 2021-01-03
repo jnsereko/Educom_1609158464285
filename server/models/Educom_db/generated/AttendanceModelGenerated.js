@@ -40,6 +40,10 @@ const generatedModel = {
         type: "String"
       },
       // RELATIONS
+      studentId: {
+        type: Schema.ObjectId,
+        ref: "Student"
+      },
       
       
       // EXTERNAL RELATIONS

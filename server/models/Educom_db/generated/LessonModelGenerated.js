@@ -43,6 +43,14 @@ const generatedModel = {
         type: "Date"
       },
       // RELATIONS
+      lecturerId: {
+        type: Schema.ObjectId,
+        ref: "Lecturer"
+      },
+      studentId: {
+        type: Schema.ObjectId,
+        ref: "Student"
+      },
       
       
       // EXTERNAL RELATIONS

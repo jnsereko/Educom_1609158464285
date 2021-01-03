@@ -47,6 +47,10 @@ const generatedModel = {
       
       // EXTERNAL RELATIONS
       /*
+      lecturerId: {
+        type: Schema.ObjectId,
+        ref: "Lesson"
+      },
       */
     });
 
